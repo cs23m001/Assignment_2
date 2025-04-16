@@ -3,7 +3,7 @@ Here, I have design a 5 layer Convolution Neural Network and then train the netw
 
 # Wandb Report Link
 
-Please find the `wandb` report link for this assignment [here](https://wandb.ai/apusarkar2195/Assignment2_CNN/reports/CS6910-Assignment-2--Vmlldzo3Mzk1NDM2). 
+Please find the `wandb` report link for this assignment [here](https://wandb.ai/cs23m001-iit-m/assignment_2_B/reports/DA6401-Assignment-2--VmlldzoxMjI5MzAzMA). 
 
 # Library Used
 The list of libraries used are : 
@@ -40,9 +40,9 @@ The above command will download most of the necessary dependencies along with py
 
 * Download or Clone git repository
 ```bash
-git clone https://github.com/apusarkar2195/CS6910_Assignment_2.git
-cd CS6910_Assignment_2
-cd Part\ A
+git clone https://github.com/cs23m001/Assignment_2.git
+cd Assignment_2
+cd Part_A
 ```
 
 # Repository Deatils
@@ -60,6 +60,7 @@ The repository contains the list of python files.
 * `wandb_gridd_push.py` - To push the image grid to wandb.
 * `wandb_params_search.py` - Contains code for hyper-parameter search using wandb.
 * `requirements.txt` - Contains additional packages for installation.
+* `part_a_best_model.pth` - Pre-trained weights for the Part A.
 
 `If you want to visualize the image grid make sure you replace the weights path inside the code properly.`
 
@@ -70,7 +71,7 @@ After setting the environment and cloning the repository, first run the `csv_gen
 ```python
 python csv_generator.py --train_dir=<path to train dir> --test_dir=<path to test dir> --val_split=0.2
 ```
-`For example the train_dir = '/home/../../nature_12K/inaturalist_12K/train'` 
+`For example the train_dir = '/home/.../.../nature_12K/inaturalist_12K/train'` 
 
 This will create 4 .csv files
 * `train_meta_data.csv` - Containing all the image path and labels inside the training directory.
@@ -89,10 +90,10 @@ The .csv files are used to define the Dataset class. Once all the csv file are g
 To train the model run the `train_parta.py` script with the desired command-line arguments. 
 
 ```bash
-python train_parta.py --epochs=15 --batch_size=128 --learning_rate=0.0003 --filters 64 64 64 64 64 --kernel_size 3 3 5 7 7 --dense_size=512 --conv_activation='relu' --dense_activation='gelu' --batch_norm=True --dropout=0.4 --augmentation=True --save_model=False
+python train_parta.py --epochs=15 --batch_size=128 --learning_rate=0.0003 --filters 32 64 64 128 128 --kernel_size 3 3 3 5 5 --dense_size=512 --conv_activation='gelu' --dense_activation='mish' --batch_norm=True --dropout=0.45 --augmentation=True --save_model=False
 
 ```
-This command will train a five-layer CNN model with kernel sizes of 3, 3, 5, 7, and 7 with 64 filters in each consecutive layer. Each of these convolution layers will have relu as activation function. Specifically, 512 neurons with 'gelu' activation will be used in the last fully connected layer prior to the output layer. With data augmentation, the model will train for 15 epochs with a batch size of 128 and a learning rate of 0.0003. Batch normalization and dropout with probability 0.4 will also be used in the training procedure for regularization.
+This command will train a five-layer CNN model with kernel sizes of 3, 3, 3, 5, and 5 with 32, 64, 64, 128 and 128 filters in each consecutive layer. Each of these convolution layers will have gelu as activation function. Specifically, 512 neurons with 'mish' activation will be used in the last fully connected layer prior to the output layer. With data augmentation, the model will train for 15 epochs with a batch size of 128 and a learning rate of 0.0003. Batch normalization and dropout with probability 0.45 will also be used in the training procedure for regularization.
 
 ## List of command line arguments
 * `--epochs` - Number of epochs to train neural network.
@@ -114,22 +115,23 @@ If you want to train the model with the default parameters then just run
 ```
 
 or you can run this for 3 epochs
-```python
-  python train_parta.py --epochs=3 --batch_size=128 --learning_rate=0.0003 --filters 64 64 64 64 64 --kernel_size 3 3 5 7 7 --dense_size=512 --conv_activation='relu' --dense_activation='gelu' --batch_norm=True --dropout=0.4 --augmentation=True --save_model=False
+```bash
+  python train_parta.py --epochs=3 --batch_size=128 --learning_rate=0.0003 --filters 32 64 64 128 128 --kernel_size 3 3 3 5 5 --dense_size=512 --conv_activation='relu' --dense_activation='gelu' --batch_norm=True --dropout=0.4 --augmentation=True --save_model=False
 ```    
 
 The default configuration is set based on the wandb hyper-parameter search. It will take approximately `3 min per epoch (on a system with NVIDIA GeForce GTX TITAN X(12GB) gpu)`.
 
 # Evaluation 
 Before evaluation make sure you have created the 4 .csv files by running the `csv_generator.py` inside `utils` directory.
-In order to evaluate the model first download the pre-trained model weights form [here](https://drive.google.com/drive/folders/1nSO-nkRFdDIN5Qd_qXNpGUpveGkPBQ0w?usp=drive_link). After download is completed then set the path as `model_path` and run
+In order to evaluate the model make sure you have set the `model_path` as pre-trained path and run
 
-```python
-python evaluate_parta.py --model_path=<path to downloaded weights>
+```bash
+python evaluate_parta.py
 ```
-`For example model_path='/home/apu/Downloads/part_a_best_model.pth'`
+As the repo already contained the pre-trained weights you just need to run the above command to evaluate the model.
 
 This will first initialize the model with the default hyper-parameters used during training and then will load the pre-trained weights. Finally it will test the model on the seperate test data in the `iNaturalist` dataset and report the test accuracy.
+`All the repoted accuracies are tested on the given split of the tset, train and validation`
 
 # Acknowledgements
 

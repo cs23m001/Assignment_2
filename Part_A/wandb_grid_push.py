@@ -72,8 +72,8 @@ for i in range(len(images_actual)):
 # for item in example:
 #     item.show()
 
-wandb.login(key="c945d86dbf87377839ef0505ef1766e96745af82")
-with wandb.init(entity="cs23m001-iit-m", project="assignment_2_plot", name="image grid"): 
+wandb.login(key="xxxxxxx")
+with wandb.init(entity="xxxxx", project="xxxx", name="image grid"): 
     wandb.log({'Image Grid of Predicted  Test Image' : example})
 
 wandb.finish()

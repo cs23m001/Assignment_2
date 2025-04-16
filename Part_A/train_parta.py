@@ -170,7 +170,7 @@ def parse_argument():
     parser.add_argument("--batch_norm", type=bool, default=True, help="Whether to use batch normalization")
     parser.add_argument("--dropout", type=float, default=0.45, help="Dropout rate")
     parser.add_argument("--augmentation", type=bool, default=True, help="Whether to use data augmentation")
-    parser.add_argument("--save_model", type=bool, default=True, help="Whether to save the trained model")
+    parser.add_argument("--save_model", type=bool, default=False, help="Whether to save the trained model")
 
     return parser.parse_args()
 
