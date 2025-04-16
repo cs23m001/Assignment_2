@@ -2,7 +2,7 @@
 The primary objective of this assignment was to create a Convolution Neural Network (CNN) for the purpose of classifying images. The assignment is completed in two parts. A five-layer CNN model is designed and trained entirely from scratch in the first part. The second part involves fine-tuning the previously trained model, specifically the `vision trainsformer` trained on `ImageNet`, for the same task.
 
 # Wandb Report Link
-Please find the `wandb` report for this assignment [here](https://wandb.ai/apusarkar2195/Assignment2_CNN/reports/CS6910-Assignment-2--Vmlldzo3Mzk1NDM2).
+Please find the `wandb` report for this assignment [here](https://wandb.ai/cs23m001-iit-m/assignment_2_B/reports/DA6401-Assignment-2--VmlldzoxMjI5MzAzMA).
 
 # Dataset
 For this assignment [iNaturalist]() is used for training and evaluation. The directory strucutre of the dataset 
@@ -37,10 +37,4 @@ The total numners of samples
 * validation - 2000 (200 per class)
 * test - 2000 (200 per class)
 
-# General Pipieline
-To train and fine-tune the [iNaturalist]() dataset used. The pipeline for the assignment is 
-* Data Preparation
-* Model Design
-* Training
-* Evaluation
 
