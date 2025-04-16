@@ -116,7 +116,7 @@ If you want to train the model with the default parameters then just run
 
 or you can run this for 3 epochs
 ```bash
-  python train_parta.py --epochs=3 --batch_size=128 --learning_rate=0.0003 --filters 32 64 64 128 128 --kernel_size 3 3 3 5 5 --dense_size=512 --conv_activation='relu' --dense_activation='gelu' --batch_norm=True --dropout=0.4 --augmentation=True --save_model=False
+  python train_parta.py --epochs=3 --batch_size=128 --learning_rate=0.0003 --filters 32 64 64 128 128 --kernel_size 3 3 3 5 5 --dense_size=512 --conv_activation='gelu' --dense_activation='mish' --batch_norm=True --dropout=0.45 --augmentation=True --save_model=False
 ```    
 
 The default configuration is set based on the wandb hyper-parameter search. It will take approximately `3 min per epoch (on a system with NVIDIA GeForce GTX TITAN X(12GB) gpu)`.
