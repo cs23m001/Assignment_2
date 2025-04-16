@@ -35,7 +35,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 * Installing extra requirements
 The above command will download most of the necessary dependencies along with pytorch. For installing the rest of the packages run 
 ``` bash
-    pip install requirements.txt
+    pip install -r requirements.txt
 ```
 
 * Download or Clone git repository
