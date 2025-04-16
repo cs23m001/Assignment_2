@@ -41,8 +41,8 @@ def process_data(config):
 
 def parse_argument():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-train", "--train_dir", help="Path to the train data directory", type=str, default='/home/apu/Desktop/Dataset/nature_12K/inaturalist_12K/train')
-    parser.add_argument("-test", "--test_dir", help="Path to the test data directory", type=str, default='/home/apu/Desktop/Dataset/nature_12K/inaturalist_12K/val')
+    parser.add_argument("-train", "--train_dir", help="Path to the train data directory", type=str, default='/home/apu/Desktop/nature_12K/inaturalist_12K/train')
+    parser.add_argument("-test", "--test_dir", help="Path to the test data directory", type=str, default='/home/apu/Desktop/nature_12K/inaturalist_12K/val')
     parser.add_argument("-split", "--val_split", help="Train and validation split", type=float, default=0.2)
 
     return parser.parse_args()
