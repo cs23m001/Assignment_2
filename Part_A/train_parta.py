@@ -159,7 +159,7 @@ def train(config):
 def parse_argument():
     parser = argparse.ArgumentParser(description="Arguments for training the model")
 
-    parser.add_argument("--epochs", type=int, default=20, help="Number of epochs for training")
+    parser.add_argument("--epochs", type=int, default=15, help="Number of epochs for training")
     parser.add_argument("--batch_size", type=int, default=256, help="Batch size for training")
     parser.add_argument("--learning_rate", type=float, default=0.00035, help="Learning rate for training")
     parser.add_argument("--filters", nargs='+', type=int, default=[32, 64, 64, 128, 256], help="List of filter sizes for convolutional layers")
@@ -170,7 +170,7 @@ def parse_argument():
     parser.add_argument("--batch_norm", type=bool, default=True, help="Whether to use batch normalization")
     parser.add_argument("--dropout", type=float, default=0.1, help="Dropout rate")
     parser.add_argument("--augmentation", type=bool, default=True, help="Whether to use data augmentation")
-    parser.add_argument("--save_model", type=bool, default=True, help="Whether to save the trained model")
+    parser.add_argument("--save_model", type=bool, default=False, help="Whether to save the trained model")
 
     return parser.parse_args()
 
