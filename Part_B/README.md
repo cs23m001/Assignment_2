@@ -87,12 +87,12 @@ The .csv files are used to define the Dataset class. Once all the csv file are g
 
 To train the model run the `train_partb.py` script with the desired command-line arguments. 
 ```bash
-python train_partb.py --epochs=10 --batch_size=64 --learning_rate=0.0003 --dense_size=256 --activation='gelu' --dropout=0.25 --augmentation=False --save_model=False
+python train_partb.py --epochs=15 --batch_size=256 --learning_rate=0.0003 --dense_size512 --activation='relu' --dropout=0.4 --augmentation=True --save_model=False
 ```
 
 `If you use save_model=True make sure you have set the path to correctly. You need to change path in the section of code where saving is done. While loading the model use the same path only.`
 
-This command will optimize a classification model that is based on a vision transformer. With a batch size of 64 and a learning rate of 0.0003, the model will be trained over 10 epochs. The final dense layer of the model will include 256 neurons with relu activation. Additionally, there will be a 0.25 percent dropout used between the classifier's output layer and its final dense layer. Only the classifier module will be trained.
+This command will optimize a classification model that is based on a vision transformer. With a batch size of 256 and a learning rate of 0.0003, the model will be trained over 15 epochs. The final dense layer of the model will include 512 neurons with relu activation. Additionally, there will be a 0.4 percent dropout used between the classifier's output layer and its final dense layer. Only the classifier module will be trained.
 
 ## List of command line arguments
 
@@ -112,19 +112,18 @@ If you want to train the model with the default parameters then just run
 
 or you can run it for 3 epochs
 ```bash
-python train_partb.py --epochs=3 --batch_size=64 --learning_rate=0.0003 --dense_size=256 --activation='gelu' --dropout=0.25 --augmentation=False --save_model=False
+python train_partb.py --epochs=3 --batch_size=256 --learning_rate=0.0003 --dense_size=512 --activation='relu' --dropout=0.4 --augmentation=True --save_model=False
 ```
 
 The default configuration is set based on the wandb hyper-parameter search.
 
 # Evaluation 
 
-Before evaluation make sure you have created the 4 .csv files by running the `csv_generator.py` inside `utils` directory and run
+Before evaluation make sure you have created the 4 .csv files by running the `csv_generator.py` inside `utils` directory. To evaluate the model first download the pre-trained weights from [here](https://drive.google.com/file/d/1eX1dRHXnBB3SdWmANOxfltACG27YaawL/view?usp=drive_link) inside the same directory and then run
 
 ```bash
 python evaluate_partb.py
 ```
-As the repo already contained the pre-trained weights you just need to run the above command.
 
 This will first initialize the model with the default hyper-parameters used during training. Finally it will test the model on the seperate test data in the `iNaturalist` dataset and report the test accuracy.
 `All the reported accuracies are based on the specific split set`
