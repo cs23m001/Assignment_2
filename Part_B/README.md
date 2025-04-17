@@ -87,7 +87,7 @@ The .csv files are used to define the Dataset class. Once all the csv file are g
 
 To train the model run the `train_partb.py` script with the desired command-line arguments. 
 ```bash
-python train_partb.py --epochs=15 --batch_size=256 --learning_rate=0.0003 --dense_size512 --activation='relu' --dropout=0.4 --augmentation=True --save_model=False
+python train_partb.py --epochs=15 --batch_size=256 --learning_rate=0.0003 --dense_size=512 --activation='relu' --dropout=0.4 --augmentation=True --save_model=False
 ```
 
 `If you use save_model=True make sure you have set the path to correctly. You need to change path in the section of code where saving is done. While loading the model use the same path only.`

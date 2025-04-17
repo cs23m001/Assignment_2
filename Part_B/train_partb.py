@@ -161,7 +161,7 @@ def parse_argument():
     parser.add_argument("-da", "--activation", help="Activation Function for dense layer", type=str, default='relu')
     parser.add_argument("-dr", "--dropout", help="Dropout used", type=float, default=0.4)
     parser.add_argument("-aug", "--augmentation", help="Data Augmentations", type=bool, default=True)
-    parser.add_argument("-save", "--save_model", help="Save the best model parameters based on validation accuracy", type=bool, default=True)
+    parser.add_argument("-save", "--save_model", help="Save the best model parameters based on validation accuracy", type=bool, default=False)
 
     return parser.parse_args()
 
